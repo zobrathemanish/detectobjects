@@ -8,14 +8,7 @@
 </head>
 <body>
         <h1>Object Detection Using TFJS By Bottle</h1>
-        <div class="container">
-                <div class="button-group">
-                        <button id="v3">GPU - No Problem </button>
-                        <button id="v1tiny">High GPU</button>
-                        <button id="v2tiny">Average GPU</button>
-                        <button id="v3tiny">Low GPU</button>
-                </div>
-        </div>
+        
         <div class="container">
                 <div id="webcam-wrapper">
                         <div id="loader"></div>
@@ -28,6 +21,14 @@
                         </div>
                         <div id="rects"></div>
                         <video autoplay playsinline muted id="webcam"></video>
+                </div>
+        </div>
+        <div class="container">
+                <div class="button-group">
+                         <div id="v3"> </div> 
+                         <div id="v1tiny"></div> 
+                         <button id="v2tiny">Click to start</button>
+                         <div id="v3tiny"></div> 
                 </div>
         </div>
         <script type="text/javascript" src="dist/bundle.js"></script>
