@@ -27,6 +27,7 @@ from flask_sslify import SSLify
 import cv2
 from flask_mysqldb import MySQL
 import yaml
+import demo
 
 #pages = convert_from_path('bscit.pdf', 500)
 #page[0].save('out.jpg', 'JPEG')
@@ -153,6 +154,27 @@ def users():
 @application.route('/emotion', methods=['GET', 'POST'])
 def facemap():
     return render_template('clm_emotiondetection.html')
+
+
+@application.route('/uploader', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        base64img = request.form['base64img']
+        filepath = 'static/img/signups/'  # I assume you have a way of picking unique filenames
+        full_filename = filepath+''.join(random.choice(string.ascii_uppercase) for _ in range(5)) + '.jpg'
+        saveImage(base64img, full_filename)
+
+        return jsonify(age=demo.getAge(os.getcwd()+'/'+full_filename))
+
+@application.route('/peoplecount', methods=['GET', 'POST'])
+def peoplecount():
+    if request.method == 'POST':
+        base64img = request.form['base64img']
+        filepath = 'static/img/signups/'  # I assume you have a way of picking unique filenames
+        full_filename = filepath+''.join(random.choice(string.ascii_uppercase) for _ in range(5)) + '.jpg'
+        saveImage(base64img, full_filename)
+
+        return jsonify(count=demo.getPeopleCount(os.getcwd()+'/'+full_filename))
 
 if __name__ == '__main__':
   # context = ('ssl/cert.pem', 'ssl/privkey.pem')
