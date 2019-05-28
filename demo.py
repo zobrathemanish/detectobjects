@@ -125,7 +125,7 @@ def getAge(imagePath):
         predicted_ages = results[1].dot(ages).flatten()
 
         if predicted_ages[0] >= 25:
-            return predicted_ages[0]-3
+            return predicted_ages[0]-5
 
         return predicted_ages[0]
     else:
