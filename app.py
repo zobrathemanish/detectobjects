@@ -110,10 +110,10 @@ def upload_FID():
         cur.execute("SELECT photo FROM users WHERE name =%s", [username])
         userDetails = cur.fetchone()
         try:
-        	oldimg = userDetails[0]
+            oldimg = userDetails[0]
         except TypeError:
-        	stmt = 'No such username found'
-        	return json.dumps(stmt)
+            stmt = 'No such username found'
+            return json.dumps(stmt)
         #oldimg = userDetails[0]
         mysql.connection.commit()
         cur.close()
@@ -142,10 +142,11 @@ def test():
 @application.route('/', methods=['GET', 'POST'])
 def landing():
     return render_template('index.html')
-#@application.route('/', methods=['GET', 'POST'])
-#def landing():
- #   return render_template('clm_emotiondetection.html')
 
+
+@application.route('/test1', methods=['GET', 'POST'])
+def test1():
+     return render_template('indextest.html')
 
 @application.route('/users')
 def users():

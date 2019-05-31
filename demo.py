@@ -142,4 +142,4 @@ def getPeopleCount(imagePath):
 
 
 
-print(getAge('/home/bikash/Pictures/169764_web.jpg'))
+print(getAge('./static/TDZGC.jpg'))
